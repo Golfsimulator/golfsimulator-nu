@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+}
+
+@layer components {
+  .article-content h2 {
+    @apply text-2xl font-semibold text-golf-green-950 mb-4 mt-8;
+  }
+  
+  .article-content h3 {
+    @apply text-xl font-medium text-golf-green-800 mb-3 mt-6;
+  }
+  
+  .article-content p {
+    @apply text-gray-700 mb-4 leading-relaxed;
+  }
+  
+  .article-content ul, .article-content ol {
+    @apply text-gray-700 mb-4 pl-6;
+  }
+  
+  .article-content li {
+    @apply mb-2;
+  }
+  
+  .article-content ul li {
+    @apply list-disc;
+  }
+  
+  .article-content ol li {
+    @apply list-decimal;
+  }
+  
+  .article-content strong {
+    @apply font-semibold text-golf-green-900;
+  }
+  
+  .article-content a {
+    @apply text-golf-green-700 hover:text-golf-green-900 underline;
+  }
+  
+  .cta-button {
+    @apply inline-block bg-golf-green-950 text-white px-8 py-3 rounded-lg font-semibold hover:bg-golf-green-800 transition-colors duration-300;
+  }
+  
+  .article-card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300;
+  }
+}
