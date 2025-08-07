@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { getArticleBySlug, getAllSlugs } from '../../lib/articles'
+import { getArticleBySlug, getAllSlugs } from '../../../../lib/articles'
 import Link from 'next/link'
 import { FiCalendar, FiClock, FiArrowLeft } from 'react-icons/fi'
 
@@ -12,7 +12,7 @@ interface ArticlePageProps {
 export async function generateStaticParams() {
   const slugs = getAllSlugs()
   return slugs.map((slug) => ({
-    slug: slug,
+    slug,
   }))
 }
 
@@ -54,6 +54,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
   return (
     <article className="py-12 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Breadcrumb */}
         <nav className="mb-8">
           <Link
@@ -84,11 +85,11 @@ export default function ArticlePage({ params }: ArticlePageProps) {
               {article.readTime}
             </div>
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl font-bold text-golf-green-950 leading-tight mb-6">
             {article.title}
           </h1>
-          
+
           <p className="text-xl text-gray-600 leading-relaxed">
             {article.description}
           </p>
@@ -125,10 +126,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
             Läs även dessa artiklar
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link
-              href="/golfsimulator-kostnad"
-              className="article-card group"
-            >
+            <Link href="/golfsimulator-kostnad" className="article-card group">
               <div className="p-6">
                 <h4 className="font-semibold text-golf-green-950 mb-2 group-hover:text-golf-green-700 transition-colors">
                   Golfsimulator kostnad - Komplett prisguide
@@ -138,11 +136,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                 </p>
               </div>
             </Link>
-            
-            <Link
-              href="/trackman-vs-skytrak"
-              className="article-card group"
-            >
+            <Link href="/trackman-vs-skytrak" className="article-card group">
               <div className="p-6">
                 <h4 className="font-semibold text-golf-green-950 mb-2 group-hover:text-golf-green-700 transition-colors">
                   TrackMan vs SkyTrak - Vilken är bäst?
@@ -154,6 +148,11 @@ export default function ArticlePage({ params }: ArticlePageProps) {
             </Link>
           </div>
         </div>
+      </div>
+    </article>
+  )
+}
+
       </div>
     </article>
   )
