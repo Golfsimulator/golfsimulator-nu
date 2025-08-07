@@ -9,12 +9,13 @@ interface ArticlePageProps {
   }
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const slugs = getAllSlugs()
   return slugs.map((slug) => ({
-    slug: slug,
+    slug,
   }))
 }
+
 
 export async function generateMetadata({ params }: ArticlePageProps) {
   const article = getArticleBySlug(params.slug)
